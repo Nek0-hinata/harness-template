@@ -1,0 +1,14 @@
+# Default owners
+* @Nek0-hinata
+
+# Core architecture and execution
+/packages/core/ @Nek0-hinata
+/apps/harness/ @Nek0-hinata
+/specs/ @Nek0-hinata
+/configs/ @Nek0-hinata
+
+# Workflow and governance docs
+/docs/ @Nek0-hinata
+/.github/ @Nek0-hinata
+/SECURITY.md @Nek0-hinata
+/CODEOWNERS @Nek0-hinata
