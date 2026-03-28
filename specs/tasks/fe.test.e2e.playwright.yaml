@@ -1,0 +1,23 @@
+apiVersion: harness/v1
+kind: Task
+metadata:
+  id: fe.test.e2e.playwright
+  version: 1.0.0
+spec:
+  description: Execute Playwright E2E tests.
+  risk_level: medium
+  idempotency: none
+  inputs:
+    type: object
+    properties:
+      suite: { type: string }
+      grep: { type: string }
+  outputs:
+    type: object
+    properties:
+      reportPath: { type: string }
+      tracePath: { type: string }
+  evidence:
+    required:
+      - report.html
+      - trace.zip

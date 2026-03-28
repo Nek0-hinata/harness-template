@@ -1,0 +1,25 @@
+apiVersion: harness/v1
+kind: Task
+metadata:
+  id: fe.codegen.page
+  version: 1.0.0
+spec:
+  description: Generate a frontend page scaffold.
+  risk_level: low
+  idempotency: by-input-hash
+  inputs:
+    type: object
+    required: [module, route, pageName]
+    properties:
+      module: { type: string }
+      route: { type: string }
+      pageName: { type: string }
+  outputs:
+    type: object
+    properties:
+      changedFiles:
+        type: array
+        items: { type: string }
+  evidence:
+    required:
+      - git.diff

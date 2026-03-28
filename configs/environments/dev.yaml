@@ -1,0 +1,4 @@
+environment: dev
+runner: local
+telemetry:
+  sample_rate: 1.0

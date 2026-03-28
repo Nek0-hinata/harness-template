@@ -1,0 +1,27 @@
+apiVersion: harness/v1
+kind: Recipe
+metadata:
+  id: recipe.fe_change_standard
+  version: 1.0.0
+spec:
+  inputs:
+    type: object
+    required: [branch, module, route]
+    properties:
+      branch: { type: string }
+      module: { type: string }
+      route: { type: string }
+  graph:
+    - id: lint
+      task: fe.lint.fix
+    - id: unit
+      task: fe.test.unit
+      depends_on: [lint]
+    - id: e2e
+      task: fe.test.e2e.playwright
+      depends_on: [unit]
+    - id: pr
+      task: git.open_pr
+      depends_on: [e2e]
+  on_failure:
+    strategy: stop

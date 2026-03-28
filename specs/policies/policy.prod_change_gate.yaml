@@ -1,0 +1,14 @@
+apiVersion: harness/v1
+kind: Policy
+metadata:
+  id: policy.prod_change_gate
+  version: 1.0.0
+spec:
+  applies_to: ["recipe.*", "task.*"]
+  rules:
+    - when:
+        environment: prod
+      require:
+        approvals: 2
+        tasks_must_include: ["fe.test.e2e.playwright"]
+        telemetry_must_include: ["run_id", "git_sha", "artifact_hash"]

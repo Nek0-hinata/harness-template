@@ -1,0 +1,7 @@
+environment: prod
+runner: ci
+telemetry:
+  sample_rate: 1.0
+release:
+  require_approvals: 2
+  change_window: "Mon-Fri 10:00-18:00 Asia/Shanghai"

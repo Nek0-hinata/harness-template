@@ -1,0 +1,17 @@
+{
+  "name": "industrial-fe-harness-template",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "harness": "tsx apps/harness/src/cli.ts",
+    "validate": "tsx apps/harness/src/cli.ts validate",
+    "plan": "tsx apps/harness/src/cli.ts plan --recipe recipe.fe_change_standard --env dev",
+    "run:recipe": "tsx apps/harness/src/cli.ts run --recipe recipe.fe_change_standard --env dev"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.2",
+    "yaml": "^2.8.1"
+  }
+}

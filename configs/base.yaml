@@ -1,0 +1,38 @@
+harness:
+  name: industrial-frontend-harness
+  default_runner: local
+  telemetry:
+    provider: console
+    log_level: info
+
+capabilities:
+  tasks:
+    - id: fe.lint.fix
+      impl: "@harness/tasks-fe#lintFix"
+    - id: fe.test.unit
+      impl: "@harness/tasks-test#unitTest"
+    - id: fe.test.e2e.playwright
+      impl: "@harness/tasks-test#playwrightE2E"
+    - id: git.open_pr
+      impl: "@harness/adapters-git#openPRTask"
+
+policies:
+  - id: policy.prod_change_gate
+    enabled: true
+    rules:
+      - match:
+          environment: prod
+        require:
+          approvals: 2
+          tasks_must_include:
+            - fe.test.e2e.playwright
+
+  - id: policy.protect_files
+    enabled: true
+    rules:
+      - match:
+          any: true
+        deny:
+          paths:
+            - "secrets/**"
+            - "infra/prod/**"

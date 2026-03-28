@@ -1,0 +1,4 @@
+environment: staging
+runner: ci
+telemetry:
+  sample_rate: 1.0
