@@ -26,6 +26,12 @@
 - `configs`：基础与环境配置
 - `docs`：规范、Runbook、设计说明
 
+## Recommended Reading
+- `docs/reports/repository-status.md`：仓库当前进度、已完成项、缺口与建议阅读顺序
+- `docs/reports/harness-research-report.md`：研究报告
+- `docs/reports/harness-architecture-spec.md`：架构设计说明
+- `docs/reports/harness-progress-and-gap-analysis.md`：进度与缺口分析
+
 ## Quick Start
 ```bash
 pnpm install
